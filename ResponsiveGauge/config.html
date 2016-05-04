@@ -530,6 +530,8 @@
 		</h2>
 		Colors and font sizes are handled by CSS.
 		<div class="code">
+			
+			<h4>Gauge style</h4>
 			.gauge-arc {
 			<br>
 			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the ring </span>
@@ -569,44 +571,53 @@
 			}
 			<br>
 			<br>
-
-			.gauge {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels and value </span>
-			<br>
-			}
-			<br>
-			<br>
-
-			.unit {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment">// size of the value's unit </span>
-			<br>
-			}
-			<br>
-			<br>
-
+			
+			<h4>Values and labels style</h4>
 			.gauge-label text {
 			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the labels </span>
+			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels </span>;
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the labels </span>;
 			<br>
 			}
 			<br>
 			<br>
 
+			.wide-gauge .gauge-label text {
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels in 'wide' gauges </span>;
+			<br>
+			}
+			<br>
+			<br>
 			.gauge-value text {
 			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment">// color of the displayed value </span>
+			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value </span>;
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the displayed value </span>;
 			<br>
 			}
 			<br>
 			<br>
 
-			.wide-gauge  {
+			.wide-gauge .gauge-value text {
 			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;... : <span class="comment">// style of wide gauges </span>
+			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value in 'wide' gauges </span>;
 			<br>
 			}
+			<br>
+			<br>
+
+			.gauge-unit {
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the unit below the displayed value</span>;
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the unit below the displayed value</span>;
+			<br>
+			}
+			<br>
+			<br>
+
 		</div>
 	</div>
 </body>
