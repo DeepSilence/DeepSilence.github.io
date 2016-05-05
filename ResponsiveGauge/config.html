@@ -30,10 +30,10 @@
 
 		The gauges can be customized using the following parameters; <a href="#css">CSS rules</a> can be used for font-size or colors.
 		<div class="code">
+			ring : {
 			<h4>Ring config</h4>
-
 			<div>
-				<div class="parameter">ringShift</div>
+				<div class="parameter">shift</div>
 				<div class="description">
 					Shift of the ring from the container side.
 					<dl class="details">
@@ -48,7 +48,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">ringWidth</div>
+				<div class="parameter">width</div>
 				<div class="description">
 					Width of the ring.
 					<dl class="details">
@@ -93,8 +93,6 @@
 			</div>
 
 
-
-
 			<h4>Sectors config</h4>
 
 			<div>
@@ -130,10 +128,72 @@
 
 
 
+			<h4>Colors config</h4>
+
+			<div>
+				<div class="parameter">colors</div>
+				<div class="description">
+					Color(s) of the gauge; values are
+					<br>
+					<em>'gradient'</em> for a gradient
+					<br>
+					<em>'sectors'</em> for coloring on each sector (gradient)
+					<br>
+					<em>[#111, #222, ...]</em> for specifying the color of each sector
+					<br>
+					<em>false</em> : no color (CSS color can be used)
+					<dl class="details">
+						<dt class="tag-default">Default Value:</dt>
+						<dd class="tag-default">false</dd>
+						<dt class="tag-since">Since:</dt>
+						<dd class="tag-since">1.0.0</dd>
+					</dl>
+				</div>
+			</div>
+
+			<div>
+				<div class="parameter">endColor</div>
+				<div class="description">
+					If colors = 'smooth' or 'sectors', used as last gradient color.
+					<dl class="details">
+						<dt class="tag-type">Type:</dt>
+						<dd class="tag-type">color</dd>
+						<dt class="tag-default">Default Value:</dt>
+						<dd class="tag-default">#d50000</dd>
+						<dt class="tag-since">Since:</dt>
+						<dd class="tag-since">1.0.0</dd>
+					</dl>
+				</div>
+			</div>
+
+			<div>
+				<div class="parameter">startColor</div>
+				<div class="description">
+					If colors = 'smooth' or 'sectors', used as first gradient color.
+					<dl class="details">
+						<dt class="tag-type">Type:</dt>
+						<dd class="tag-type">color</dd>
+						<dt class="tag-default">Default Value:</dt>
+						<dd class="tag-default">#ffebee</dd>
+						<dt class="tag-since">Since:</dt>
+						<dd class="tag-since">1.0.0</dd>
+					</dl>
+				</div>
+			</div>
+			}
+			<br>
+			<br>
+			<br>
+
+
+
+
+
+			pointer : {
 			<h4>Pointers config</h4>
 
 			<div>
-				<div class="parameter">pointerType</div>
+				<div class="parameter">type</div>
 				<div class="description">
 					Type of pointer; values are :
 					<br>
@@ -154,7 +214,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">pointerSlowness</div>
+				<div class="parameter">slowness</div>
 				<div class="description">
 					Time (in millis) for the pointer to stabilize at the correct position.
 					<dl class="details">
@@ -227,15 +287,19 @@
 					</dl>
 				</div>
 			</div>
+			}
 
 
 
 
-
+			<br>
+			<br>
+			<br>
+			data :{
 			<h4>Limits config</h4>
 
 			<div>
-				<div class="parameter">minValue</div>
+				<div class="parameter">min</div>
 				<div class="description">
 					Minimum value displayed on the gauge.
 					<dl class="details">
@@ -250,7 +314,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">maxValue</div>
+				<div class="parameter">max</div>
 				<div class="description">
 					Maximum value displayed on the gauge.
 					<dl class="details">
@@ -278,15 +342,18 @@
 					</dl>
 				</div>
 			</div>
+			}
 
 
 
-
-
+			<br>
+			<br>
+			<br>
+			labels:{
 			<h4>Labels config</h4>
 
 			<div>
-				<div class="parameter">labelNumber</div>
+				<div class="parameter">number</div>
 				<div class="description">
 					Number of labels around the gauges (ticks).
 					<dl class="details">
@@ -302,7 +369,7 @@
 
 
 			<div>
-				<div class="parameter">labelFormatter</div>
+				<div class="parameter">formatter</div>
 				<div class="description">
 					Function used to format the labels (can be d3.format). The formatter context is the config object.
 					<br>
@@ -320,7 +387,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">labelMantissaMax</div>
+				<div class="parameter">mantissaMax</div>
 				<div class="description">
 					If no custom labelFormatter is specified, number of mantissa digits before using SI units (Mega, Kilo...).
 					<dl class="details">
@@ -335,7 +402,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">labelDecimalsMax</div>
+				<div class="parameter">decimalsMax</div>
 				<div class="description">
 					If no custom labelFormatter is specified, limits the number of decimal digits of labels.
 					<dl class="details">
@@ -350,7 +417,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">labelShift</div>
+				<div class="parameter">shift</div>
 				<div class="description">
 					Shift of the label from the container side.
 					<dl class="details">
@@ -363,72 +430,20 @@
 					</dl>
 				</div>
 			</div>
+			}
 
 
 
 
 
-			<h4>Colors config</h4>
-
-			<div>
-				<div class="parameter">colors</div>
-				<div class="description">
-					Color(s) of the gauge; values are
-					<br>
-					<em>'gradient'</em> for a gradient
-					<br>
-					<em>'sectors'</em> for coloring on each sector (gradient)
-					<br>
-					<em>[#111, #222, ...]</em> for specifying the color of each sector
-					<br>
-					<em>false</em> : no color (CSS color can be used)
-					<dl class="details">
-						<dt class="tag-default">Default Value:</dt>
-						<dd class="tag-default">false</dd>
-						<dt class="tag-since">Since:</dt>
-						<dd class="tag-since">1.0.0</dd>
-					</dl>
-				</div>
-			</div>
-
-			<div>
-				<div class="parameter">endColor</div>
-				<div class="description">
-					If colors = 'smooth' or 'sectors', used as last gradient color.
-					<dl class="details">
-						<dt class="tag-type">Type:</dt>
-						<dd class="tag-type">color</dd>
-						<dt class="tag-default">Default Value:</dt>
-						<dd class="tag-default">#d50000</dd>
-						<dt class="tag-since">Since:</dt>
-						<dd class="tag-since">1.0.0</dd>
-					</dl>
-				</div>
-			</div>
-
-			<div>
-				<div class="parameter">startColor</div>
-				<div class="description">
-					If colors = 'smooth' or 'sectors', used as first gradient color.
-					<dl class="details">
-						<dt class="tag-type">Type:</dt>
-						<dd class="tag-type">color</dd>
-						<dt class="tag-default">Default Value:</dt>
-						<dd class="tag-default">#ffebee</dd>
-						<dt class="tag-since">Since:</dt>
-						<dd class="tag-since">1.0.0</dd>
-					</dl>
-				</div>
-			</div>
-
-
-
-
-
+			<br>
+			<br>
+			<br>
+			value :{
 			<h4>Value display config</h4>
 
 			<div>
-				<div class="parameter">showValue</div>
+				<div class="parameter">show</div>
 				<div class="description">
 					Enable value display.
 					<dl class="details">
@@ -443,7 +458,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">valueShift</div>
+				<div class="parameter">shift</div>
 				<div class="description">
 					Shift of the label from the center of the gauge.
 					<dl class="details">
@@ -459,7 +474,7 @@
 
 
 			<div>
-				<div class="parameter">valueFormatter</div>
+				<div class="parameter">formatter</div>
 				<div class="description">
 					Function used to format the value (can be d3.format). The formatter context is the config object.
 					<br>
@@ -477,7 +492,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">valueMantissaMax</div>
+				<div class="parameter">mantissaMax</div>
 				<div class="description">
 					If no custom valueFormatter is specified, number of mantissa digits before using SI units (Mega, Kilo...).
 					<dl class="details">
@@ -492,7 +507,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">valueDecimalsMax</div>
+				<div class="parameter">decimalsMax</div>
 				<div class="description">
 					If no custom valueFormatter is specified, limits the number of decimal digits of labels.
 					<dl class="details">
@@ -507,7 +522,7 @@
 			</div>
 
 			<div>
-				<div class="parameter">valueUnit</div>
+				<div class="parameter">unit</div>
 				<div class="description">
 					Unit displayed under the value.
 					<dl class="details">
@@ -520,6 +535,7 @@
 					</dl>
 				</div>
 			</div>
+			}
 		</div>
 
 
@@ -530,93 +546,93 @@
 		</h2>
 		Colors and font sizes are handled by CSS.
 		<div class="code">
-			
+
 			<h4>Gauge style</h4>
-			.gauge-arc {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the ring </span>
-			<br>
-			}
-			<br>
-			<br>
+			<div>
+				.gauge-arc {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the ring </span>
+				<br>
+				}
+				<br>
+				<br>
 
-			.gauge-border {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the border around the ring </span>
-			<br>
-			}
-			<br>
-			<br>
+				.gauge-border {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the border around the ring </span>
+				<br>
+				}
+				<br>
+				<br>
 
-			.gauge-filler {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the 'filled' pointer </span>
-			<br>
-			}
-			<br>
-			<br>
+				.gauge-filler {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the 'filled' pointer </span>
+				<br>
+				}
+				<br>
+				<br>
 
-			.gauge-filament {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the 'filament' pointer </span>
-			<br>
-			}
-			<br>
-			<br>
+				.gauge-filament {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the 'filament' pointer </span>
+				<br>
+				}
+				<br>
+				<br>
 
-			.gauge-needle {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the 'needle' pointer </span>
-			<br>
-			}
-			<br>
-			<br>
-			
-			<h4>Values and labels style</h4>
-			.gauge-label text {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels </span>;
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the labels </span>;
-			<br>
-			}
-			<br>
-			<br>
+				.gauge-needle {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;stroke: <span class="comment"> // color of the 'needle' pointer </span>
+				<br>
+				}
+				<br>
+				<br>
 
-			.wide-gauge .gauge-label text {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels in 'wide' gauges </span>;
-			<br>
-			}
-			<br>
-			<br>
-			.gauge-value text {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value </span>;
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the displayed value </span>;
-			<br>
-			}
-			<br>
-			<br>
+				<h4>Values and labels style</h4>
+				.gauge-label text {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels </span>;
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the labels </span>;
+				<br>
+				}
+				<br>
+				<br>
 
-			.wide-gauge .gauge-value text {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value in 'wide' gauges </span>;
-			<br>
-			}
-			<br>
-			<br>
+				.wide-gauge .gauge-label text {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the labels in 'wide' gauges </span>;
+				<br>
+				}
+				<br>
+				<br>
+				.gauge-value text {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value </span>;
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the displayed value </span>;
+				<br>
+				}
+				<br>
+				<br>
 
-			.gauge-unit {
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the unit below the displayed value</span>;
-			<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the unit below the displayed value</span>;
-			<br>
-			}
-			<br>
-			<br>
+				.wide-gauge .gauge-value text {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the displayed value in 'wide' gauges </span>;
+				<br>
+				}
+				<br>
+				<br>
+
+				.gauge-unit {
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;font-size: <span class="comment"> // size of the unit below the displayed value</span>;
+				<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;fill: <span class="comment"> // color of the unit below the displayed value</span>;
+				<br>
+				}
+			</div>
 
 		</div>
 	</div>

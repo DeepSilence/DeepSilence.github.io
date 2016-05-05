@@ -73,6 +73,11 @@ figcaption {
 	font-size: 22px;
 }
 
+.header small a {
+	font-style: italic;
+	font-weight: lighter;
+}
+
 .header .example-container {
 	border: none;
 	resize: none;
@@ -179,36 +184,39 @@ figcaption {
 /**
  *	CONFIG PAGE STYLES
  */
-/* config options and tables of parameter  */
-em {
-	padding-left: 20px;
-	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 /* font styles */
-#config .code {
+#config h4 {
 	font-family: 'Roboto', sans-serif;
+	border-bottom: 1px solid #999;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	width: 70%;
+	font-size: smaller;
 }
 
-#config h4 {
-	border-bottom: 1px solid #999;
-	margin: 0 0 20px;
-	width: 70%;
+#config .code>div, #config .code>h4 {
+	margin-left: 50px;
 }
 
 /* makes the value name and the description inline */
 #config .parameter {
 	display: table-cell;
-	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 	width: 200px;
 }
 
 #config  .description {
 	display: table-cell;
+	font-family: 'Roboto', sans-serif;
 }
 
 #config .details {
-	margin: 5px 0 30px;
+	margin-top: 5px;
+}
+
+/* config options and tables of parameter  */
+em {
+	padding-left: 20px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 /* makes the definitions inline*/
@@ -234,8 +242,4 @@ em {
 #config dd::after {
 	content: " ";
 	display: block;
-}
-
-.TODO {
-	background-color: yellow;
 }
