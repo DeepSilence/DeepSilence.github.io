@@ -36,7 +36,7 @@ h2>a {
 	font-size: medium;
 }
 
-body>div {
+body>article, body>nav {
 	padding-left: 50px;
 	padding-right: 50px;
 }
@@ -57,7 +57,7 @@ figcaption {
 /*
  * ELEMENTS STYLES
  */
-.header {
+header {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-color: #5fc2c9;
@@ -65,20 +65,20 @@ figcaption {
 	text-align: center;
 }
 
-.header h1 {
+header h1 {
 	font-size: 30px;
 }
 
-.header small {
+header small {
 	font-size: 22px;
 }
 
-.header small a {
+header small a {
 	font-style: italic;
 	font-weight: lighter;
 }
 
-.header .example-container {
+header .example-container {
 	border: none;
 	resize: none;
 }
@@ -92,14 +92,15 @@ figcaption {
 	vertical-align: top; /* keep gauges aligned when testing sizes */
 }
 
-.menu {
+nav {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
 
-.menu a {
+nav a {
 	display: inline-block;
 	padding-right: 20px;
+	padding-bottom: 10px; /* more space on mobiles */
 }
 
 .examples {
@@ -242,4 +243,20 @@ em {
 #config dd::after {
 	content: " ";
 	display: block;
+}
+
+/** ************************************************
+ *		MOBILES
+ */
+@media ( max-width : 900px) {
+	body>article, body>nav {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#config .code>div, #config .code>h4 {
+		margin-left: 20px;
+	}
+	#config .parameter {
+		width: 160px;
+	}
 }
