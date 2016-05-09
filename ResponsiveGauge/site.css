@@ -134,16 +134,8 @@ nav a {
 	fill: #8FBC8F;
 }
 
-#example-mail-count-gauge .gauge-arc {
-	fill: #810301;
-}
-
-#example-mail-count-gauge .gauge-filler {
-	fill: #C75453;
-}
-
-#example-voltage-gauge .gauge-arc-border {
-	stroke: #ccc;
+#example-speed-gauge .gauge-arc {
+	fill: #efefef;
 }
 
 #example-message-count-gauge .gauge-filler {
@@ -152,10 +144,6 @@ nav a {
 
 #example-message-count-gauge .gauge-arc {
 	fill: #88461B;
-}
-
-#example-message-count-gauge .gauge-arc-border {
-	stroke: #ccc;
 }
 
 #example-half-gauge .gauge {
@@ -245,6 +233,38 @@ em {
 	display: block;
 }
 
+/* Config display */
+figcaption i, .close {
+	cursor: pointer;
+}
+
+.gauge-config {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	display: none;
+	text-align: left;
+	white-space: pre;
+	background-color: #FFF;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 10px;
+	border: 1px solid #333;
+}
+
+.gauge-config.visible {
+	display: block;
+}
+
+.gauge-config h4 {
+	display: inline;
+}
+
+.close {
+	float: right;
+	font-weight: bold;
+}
 /** ************************************************
  *		MOBILES
  */
