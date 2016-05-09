@@ -14,8 +14,8 @@
 
 <body>
 	<nav id="menu">
-		<a href="index.html#examples">Examples</a> <a href="quick-start.html">Quick start</a> <a href="usage.html">Usage</a> <a href="config.html">Configuration</a> <a
-			href="index.html#compatibility">Compatibility</a> <a href="index.html#licence">Licence</a>
+		<a href="index.html#examples">Examples</a> <a href="quick-start.html">Quick start</a> <a href="usage.html">Usage</a> <a href="config.html">Configuration</a>
+		<a href="index.html#compatibility">Compatibility</a> <a href="index.html#licence">Licence</a>
 	</nav>
 
 
@@ -27,21 +27,18 @@
 
 
 	<article id="quick-start">
-		<h2>
-			Quick start
-		</h2>
+		<h2>Quick start</h2>
 		You can use responsive-gauge via several ways :
 
+
+
 		<h3>Vanilla JS</h3>
-		Download the library files, place them in a folder of your site and add them to your page.
-		<div class="code">
-			&lt;link href="folder_containing_the_library/ResponsiveGauge.min.css" type="text/css" rel="stylesheet" /&gt;
-			<br>
-			&lt;script src="folder_containing_the_library/ResponsiveGauge.min.js"&gt;&lt;/script&gt;
-		</div>
+		Download the library file, place it in a folder of your site and add it to your page.
+		<div class="code">&lt;script src="folder_containing_the_library/ResponsiveGauge.min.js"&gt;&lt;/script&gt;</div>
+
+
 
 		<h3>RequireJS</h3>
-
 		Configure requireJS to retrieve responsive-gauge from the CDN :
 		<div class="code">
 
@@ -49,7 +46,8 @@
 			<br />
 			&nbsp;&nbsp;&nbsp;&nbsp;"paths" : {
 			<br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"gauges" : https://cdn.rawgit.com/DeepSilence/ResponsiveGauge/69b33feebb300834edaa535df95fae1e68de59e9/dist/ResponsiveGauge.min.css
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"gauges" :
+			https://cdn.rawgit.com/DeepSilence/ResponsiveGauge/69b33feebb300834edaa535df95fae1e68de59e9/dist/ResponsiveGauge.min.css
 			<br />
 			&nbsp;&nbsp;&nbsp;&nbsp;}
 			<br />
@@ -65,6 +63,14 @@
 			<br>
 			}
 		</div>
+
+
+
+		<h3>Node.js / CommonJS</h3>
+		npm is a package manager for node projects; install responsive-gauge locally :
+		<div class="code">~ $ npm install responsive-gauge</div>
+		Then add the dependency to it anywhere you need :
+		<div class="code">var gauges = require('responsive-gauge');</div>
 	</article>
 </body>
 </html>
