@@ -23,7 +23,8 @@
 	<header>
 		<div id="example-header-gauge" class="example-container"></div>
 		<h1 itemprop="about">
-			Responsive gauge is a lightweight <span itemprop="applicationCategory">js library</span> to draw gauges that adapts to the available space,
+			Responsive gauge is a lightweight <span itemprop="applicationCategory">js library</span> to draw gauges that adapts to the available
+			space,
 			<br>
 			<small>based on D3 and SVG</small>
 			<br>
@@ -59,7 +60,7 @@
 			<figure>
 				<span class="example-container" id="example-voltage-gauge"></span>
 				<figcaption>
-					Classic voltmeter, with sectors and 'needle' pointer <i class="fa fa-cogs"></i>
+					Classic voltmeter, with sectors and 'needle' pointer (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 
@@ -67,7 +68,7 @@
 			<figure>
 				<span class="example-container" id="example-half-gauge"></span>
 				<figcaption>
-					Gauge with gradient, formatter and 'filament' pointer <i class="fa fa-cogs"></i>
+					Gauge with gradient, formatter and 'filament' pointer (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 
@@ -75,14 +76,14 @@
 			<figure>
 				<span class="example-container" id="example-full-gauge"></span>
 				<figcaption>
-					Full circle gauge without labels <i class="fa fa-cogs"></i>
+					Full circle gauge without labels (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 
 			<figure>
 				<span class="example-container" id="example-message-count-gauge"></span>
 				<figcaption>
-					Gauge with 'filled' pointer and intelligent number format <i class="fa fa-cogs"></i>
+					Gauge with 'filled' pointer and intelligent number format (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 
@@ -90,7 +91,7 @@
 			<figure>
 				<span class="example-container" id="example-speed-gauge"></span>
 				<figcaption>
-					Gauge with varying pointer color <i class="fa fa-cogs"></i>
+					Gauge with varying pointer color (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 
@@ -98,7 +99,7 @@
 			<figure>
 				<span class="example-container" id="example-bi-gauge"></span>
 				<figcaption>
-					Gauge with a 'filled' pointer shifted from the labels ring <i class="fa fa-cogs"></i>
+					Gauge with a 'filled' pointer shifted from the labels ring (<i class="fa fa-cogs"></i>)
 				</figcaption>
 			</figure>
 		</div>
@@ -128,13 +129,13 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/numbro/1.7.1/numbro.min.js"></script>
 	<!-- 	<script type="text/javascript" src="../../ResponsiveGauge/dist/ResponsiveGauge.min.js"></script> -->
 	<script type="text/javascript"
-		src="//cdn.rawgit.com/DeepSilence/ResponsiveGauge/cc989be56003a5d9d06ccd7050232eb394ae64e0/dist/ResponsiveGauge.min.js"></script>
+		src="http://cdn.rawgit.com/DeepSilence/ResponsiveGauge/cc989be56003a5d9d06ccd7050232eb394ae64e0/dist/ResponsiveGauge.min.js"></script>
 	<script type="text/javascript">
 		window.onload = function() {
 			var gauges = [];
 
 			// header
-			gauges.push(ResponsiveGauge('#example-header-gauge', {
+			var headerGaugeConfig = {
 				ring : {
 					minAngle : -90,
 					maxAngle : 90,
@@ -159,13 +160,17 @@
 					shift : 8,
 					decimalsMax : 0
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-header-gauge', headerGaugeConfig),
+				config : headerGaugeConfig
+			});
 
 			// half gauge
 			var percentFormatter = function(value) {
 				return value + '%'
 			};
-			gauges.push(ResponsiveGauge('#example-half-gauge', {
+			var halfGaugeConfig = {
 				pointer : {
 					type : 'filament'
 				},
@@ -189,10 +194,14 @@
 				labels : {
 					formatter : percentFormatter
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-half-gauge', halfGaugeConfig),
+				config : halfGaugeConfig
+			});
 
 			// voltage
-			gauges.push(ResponsiveGauge('#example-voltage-gauge', {
+			var voltageGaugeConfig = {
 				ring : {
 					minAngle : -90,
 					maxAngle : 0,
@@ -212,10 +221,14 @@
 					decimalsMax : 1,
 					unit : 'volts'
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-voltage-gauge', voltageGaugeConfig),
+				config : voltageGaugeConfig
+			});
 
 			// messages count
-			gauges.push(ResponsiveGauge('#example-message-count-gauge', {
+			var messageGaugeConfig = {
 				ring : {
 					minAngle : -90,
 					maxAngle : 90,
@@ -238,12 +251,16 @@
 					unit : 'messages',
 					decimalsMax : 0,
 					mantissaMax : 3,
-					shift : 15
+					shift : 11
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-message-count-gauge', messageGaugeConfig),
+				config : messageGaugeConfig
+			});
 
 			// speed
-			var speedGauge = ResponsiveGauge('#example-speed-gauge', {
+			var speedGaugeConfig = {
 				ring : {
 					minAngle : -90,
 					maxAngle : 90,
@@ -264,13 +281,18 @@
 					endColor : '#810301'
 				},
 				value : {
-					unit : 'km/h'
+					unit : 'km/h',
+					shift : 16
 				}
+			};
+			var speedGauge = ResponsiveGauge('#example-speed-gauge', speedGaugeConfig);
+			gauges.push({
+				gauge : speedGauge,
+				config : speedGaugeConfig
 			});
-			gauges.push(speedGauge);
 
 			// full circle gauge
-			gauges.push(ResponsiveGauge('#example-full-gauge', {
+			var fullGaugeConfig = {
 				ring : {
 					minAngle : 0,
 					maxAngle : 360,
@@ -297,10 +319,14 @@
 					fillerShift : 2,
 					type : 'filler'
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-full-gauge', fullGaugeConfig),
+				config : fullGaugeConfig
+			});
 
 			// filler under the gauge ring
-			gauges.push(ResponsiveGauge('#example-bi-gauge', {
+			var biGaugeConfig = {
 				ring : {
 					minAngle : -90,
 					maxAngle : 90,
@@ -324,7 +350,11 @@
 				value : {
 					shift : 15
 				}
-			}));
+			};
+			gauges.push({
+				gauge : ResponsiveGauge('#example-bi-gauge', biGaugeConfig),
+				config : biGaugeConfig
+			});
 
 			// makes the speed gauge changing
 			speedGauge.reverse = false;
@@ -345,21 +375,46 @@
 			};
 			setInterval(refresh, 3000);
 
+			// parameters for config display 
+			var tabSize = 4;
+			var tab = Array.apply(null, Array(tabSize)).join(' ');
+
+			/**
+			 *  Transform a formatter function to a string
+			 */
+			function formatterToString(func) {
+				var source = func['formatter'];
+				if (source) {
+					source = source.toSource();
+					source = source.replace(/\n/g, '<br>'); // remove new lines
+					source = source.replace(/\t/g, tab); // remove tabulations
+					func['formatter'] = source;
+				}
+			}
+
 			// display gauges options on over
 			gauges.forEach(function(g) {
-				var header = '<span class="close">X</span><h4>Configuration</h4><br/><br/>';
-				var container = g.container;
+				formatterToString(g.config.labels);
+				formatterToString(g.config.value);
+				var config = JSON.stringify(g.config, null, tabSize);
+				config = config.replace(/"([^:,\{\}']*)":/g, '$1:');
+
+				var container = g.gauge.container;
 				var conf = container.append('div')//
-				.attr('class', 'gauge-config')//
-				.html(header + JSON.stringify(g.getConfig(), null, 4));
+				.attr('class', 'gauge-config')// config container
+				conf.append('h4').text('Configuration')// title
+				conf.append('span').attr('class', 'close').text('X')// close button
+				conf.append('div').attr('class', 'conf')// config
+				.html(config);
 
 				// link the config popup to the button
-				var tmp = g.container[0][0];
+				var tmp = container[0][0];
 				do {
 					tmp = tmp.nextSibling;
 				} while (tmp !== null && tmp.tagName !== 'FIGCAPTION');
 				if (tmp !== null) {
 					tmp.addEventListener('click', function() {
+						d3.selectAll('.gauge-config').attr('class', 'gauge-config');
 						conf[0][0].setAttribute('class', 'gauge-config visible');
 					});
 				}
